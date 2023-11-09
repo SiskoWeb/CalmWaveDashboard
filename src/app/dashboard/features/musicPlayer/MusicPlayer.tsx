@@ -8,11 +8,13 @@ import {
   FaVolumeXmark,
   FaVolumeLow,
 } from "react-icons/fa6";
-import { useDispatch, useSelector } from "react-redux";
-
+// import { useDispatch, useSelector } from "react-redux";
+import { useAppSelector, useAppDispatch } from "@/redux/reduxHooks";
 export default function MusicPlayer() {
-  const count = useSelector((state: RootState) => state.musicSlice.value);
-  const dispatch = useDispatch();
+  // const count = useSelector((state: RootState) => state.musicSlice.value);
+  // const dispatch = useDispatch();
+  const count = useAppSelector((state) => state.musicSlice.value);
+  const dispatch = useAppDispatch();
   return (
     <div className="flex  justify-center items-center gap-2  ">
       {count}
