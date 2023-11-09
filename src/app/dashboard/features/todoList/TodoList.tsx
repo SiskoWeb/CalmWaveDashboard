@@ -24,13 +24,12 @@ export default function TodoList() {
       </button>
 
       <Modal isOpen={isPopupOpen}>
-        <div className="min-w-[150px] h-[300px] p-4 bg-black/70 rounded-lg flex flex-col gap-2">
+        <div className="min-w-[200px] h-[300px] p-4 bg-black/70 rounded-lg flex flex-col gap-2">
           <button className="flex justify-end" onClick={() => toggle()}>
             <FaXmark />
           </button>
           <div>
-            <h2>Todo List Content</h2>
-            <p>This is the content of the Todo.</p>
+            <h1>Tasks</h1>
           </div>
         </div>
       </Modal>

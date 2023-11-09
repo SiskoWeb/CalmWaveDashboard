@@ -2,6 +2,7 @@
 import BtnChangeBG from "../background/BtnChangeBG";
 import MusicPlayer from "../musicPlayer/MusicPlayer";
 import Timer from "../timer/Timer";
+import YoutubePlayer from "../youtubePlayer/YoutubePlayer";
 
 export default function ToolsBar() {
   return (
@@ -12,6 +13,9 @@ export default function ToolsBar() {
         <BtnChangeBG />
         <span className="w-[1px] bg-white/40 rounded-sm h-[50%]"></span>
         <Timer />
+        <span className="w-[1px] bg-white/40 rounded-sm h-[50%]"></span>
+
+        <YoutubePlayer />
       </div>
     </div>
   );

@@ -5,13 +5,11 @@ import Modal from "./Modal";
 
 export default function Button({
   icon,
-  height,
-  width,
+  style,
   children,
 }: {
-  icon: any;
-  height: string;
-  width: string;
+  icon: React.ReactElement;
+  style: string;
   children: React.ReactNode;
 }) {
   const [isPopupOpen, setPopupOpen] = useState(false);
@@ -26,7 +24,7 @@ export default function Button({
     <div className="relative ">
       <Modal isOpen={isPopupOpen}>
         <div
-          className={`fixed bottom-20 left-0 right-0 m-auto  ${width}  ${height} p-4 bg-black/70 rounded-lg flex flex-col gap-2`}
+          className={`fixed ${style}  left-0 right-0 m-auto     p-4 bg-black/70 rounded-lg flex flex-col gap-2`}
         >
           <button className="flex justify-end" onClick={() => toggle()}>
             <FaXmark />
