@@ -41,10 +41,10 @@ export default function MusicPlayer() {
 
         <Button
           icon={<FaVolumeLow />}
-          style="bottom-20 left-0 right-20 h-auto w-[100px]  "
+          style=" bottom-20 left-0 right-20 h-auto w-[100px]  gap-1 "
         >
           <input
-            className="text-yellow-500"
+            className="range pr-6 accent-yellow-500"
             type="range"
             min="0"
             max="1"

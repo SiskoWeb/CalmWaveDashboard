@@ -21,7 +21,7 @@ export default function Button({
     }
   };
   return (
-    <div className="relative flex items-center">
+    <div className="relative flex items-center left-0 right-0">
       <Modal isOpen={isPopupOpen}>
         <div
           className={`fixed ${style}  left-0 right-0 m-auto     p-4 bg-black/70 rounded-lg flex flex-col gap-2`}
