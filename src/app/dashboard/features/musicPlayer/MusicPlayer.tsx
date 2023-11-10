@@ -13,6 +13,7 @@ import { useAppSelector, useAppDispatch } from "@/redux/reduxHooks";
 
 import { nextMusic, prevMusic } from "@/redux/features/music-Slice/music-Slice";
 import useAudio from "@/hooks/useAudio";
+import Button from "../../components/Button";
 export default function MusicPlayer() {
   const music = useAppSelector((state) => state.musicSlice.musicValue);
   const dispatch = useAppDispatch();
@@ -33,13 +34,17 @@ export default function MusicPlayer() {
           <FaCaretRight />
         </button>
       </div>
-      <div className="flex items-center gap-2">
-        <button>
+      <div className="flex items-center  gap-2">
+        {/* <button>
           <FaVolumeXmark />
-        </button>
-        <button>
-          <FaVolumeLow />
+        </button> */}
+
+        <Button
+          icon={<FaVolumeLow />}
+          style="bottom-20 left-0 right-20 h-auto w-[100px]  "
+        >
           <input
+            className="text-yellow-500"
             type="range"
             min="0"
             max="1"
@@ -47,7 +52,7 @@ export default function MusicPlayer() {
             value={volume}
             onChange={(e) => handleVolumeChange(e)}
           ></input>
-        </button>
+        </Button>
       </div>
     </div>
   );
