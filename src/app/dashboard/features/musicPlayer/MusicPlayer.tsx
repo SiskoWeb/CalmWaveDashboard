@@ -1,40 +1,52 @@
 "use client";
-import { decrement, increment } from "@/redux/features/music-Slice/music-Slice";
-import { RootState } from "@/redux/store";
+
 import {
   FaRegCirclePlay,
   FaCaretRight,
   FaCaretLeft,
   FaVolumeXmark,
   FaVolumeLow,
+  FaRegCirclePause,
 } from "react-icons/fa6";
-// import { useDispatch, useSelector } from "react-redux";
+
 import { useAppSelector, useAppDispatch } from "@/redux/reduxHooks";
+
+import { nextMusic, prevMusic } from "@/redux/features/music-Slice/music-Slice";
+import useAudio from "@/hooks/useAudio";
 export default function MusicPlayer() {
-  // const count = useSelector((state: RootState) => state.musicSlice.value);
-  // const dispatch = useDispatch();
-  const count = useAppSelector((state) => state.musicSlice.value);
+  const music = useAppSelector((state) => state.musicSlice.musicValue);
   const dispatch = useAppDispatch();
+
+  const [playing, toggle, handleVolumeChange, volume] = useAudio(music);
+
   return (
     <div className="flex  justify-center items-center gap-2  ">
-      {count}
       <div className="flex items-center ">
-        <button>
+        <button onClick={() => dispatch(prevMusic())}>
           <FaCaretLeft />
         </button>
-        <button>
-          <FaRegCirclePlay />
+
+        <button onClick={toggle}>
+          {playing ? <FaRegCirclePause /> : <FaRegCirclePlay />}
         </button>
-        <button>
+        <button onClick={() => dispatch(nextMusic())}>
           <FaCaretRight />
         </button>
       </div>
       <div className="flex items-center gap-2">
-        <button onClick={() => dispatch(increment())}>
+        <button>
           <FaVolumeXmark />
         </button>
-        <button onClick={() => dispatch(decrement())}>
+        <button>
           <FaVolumeLow />
+          <input
+            type="range"
+            min="0"
+            max="1"
+            step="0.1"
+            value={volume}
+            onChange={(e) => handleVolumeChange(e)}
+          ></input>
         </button>
       </div>
     </div>

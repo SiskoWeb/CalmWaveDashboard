@@ -7,7 +7,7 @@ export default function Background() {
       loop
       muted
       playsInline
-      webkit-playsInline
+     
       preload="auto"
       className="fixed top-0 left-0 min-w-full min-h-full object-cover z-[-1]"
     >

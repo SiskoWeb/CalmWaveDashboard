@@ -1,35 +1,38 @@
-import { createSlice } from '@reduxjs/toolkit'
-import type { PayloadAction } from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit";
+import type { PayloadAction } from "@reduxjs/toolkit";
 
 export interface MusicState {
-  value: number
+  musicValue: string;
 }
 
+const musices: string[] = [
+  "https://cdn.pixabay.com/download/audio/2023/09/29/audio_0eaceb1002.mp3?filename=once-in-paris-168895.mp3",
+  "https://cdn.pixabay.com/download/audio/2023/10/31/audio_f28b04f3c0.mp3?filename=the-flashback_60sec-1-174161.mp3",
+];
 const initialState: MusicState = {
-  value: 0,
-}
+  musicValue: musices[0],
+};
 
 export const musicSlice = createSlice({
-  name: 'music',
+  name: "music",
   initialState,
   reducers: {
-    increment: (state) => {
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library,
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes
-      state.value += 1
+    nextMusic: (state) => {
+      const currentIndex = musices.indexOf(state.musicValue);
+      const nextIndex = (currentIndex + 1) % musices.length;
+      state.musicValue = musices[nextIndex];
+      console.log("next");
     },
-    decrement: (state) => {
-      state.value -= 1
-    },
-    incrementByAmount: (state, action: PayloadAction<number>) => {
-      state.value += action.payload
+    prevMusic: (state) => {
+      const currentIndex = musices.indexOf(state.musicValue);
+      const prevIndex = (currentIndex - 1 + musices.length) % musices.length;
+      state.musicValue = musices[prevIndex];
+      console.log("preven");
     },
   },
-})
+});
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = musicSlice.actions
+export const { nextMusic, prevMusic } = musicSlice.actions;
 
-export default musicSlice.reducer
+export default musicSlice.reducer;
