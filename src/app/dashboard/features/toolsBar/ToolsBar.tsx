@@ -1,4 +1,3 @@
-"use clinet";
 import BtnChangeBG from "../background/BtnChangeBG";
 import MusicPlayer from "../musicPlayer/MusicPlayer";
 import Timer from "../timer/Timer";

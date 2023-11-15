@@ -6,8 +6,9 @@ export interface MusicState {
 }
 
 const musices: string[] = [
-  "https://cdn.pixabay.com/download/audio/2023/09/29/audio_0eaceb1002.mp3?filename=once-in-paris-168895.mp3",
-  "https://cdn.pixabay.com/download/audio/2023/10/31/audio_f28b04f3c0.mp3?filename=the-flashback_60sec-1-174161.mp3",
+  "https://drive.google.com/uc?export=download&id=1uDRj8pX7fujV9fo9adSoSQSskw9QvF5A",
+  "https://drive.google.com/uc?export=download&id=1Nn1mdJNryPln-R71z5o9wfT6DhwITV1W",
+  "https://drive.google.com/uc?export=download&id=1BLS-RyCUS5dsJ2mGCCZNjMZ1o7Eo4J2a",
 ];
 const initialState: MusicState = {
   musicValue: musices[0],

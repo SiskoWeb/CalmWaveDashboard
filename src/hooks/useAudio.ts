@@ -1,10 +1,10 @@
 "use client";
 
+import { AUdioHookType } from "@/types";
 import { ChangeEvent, useEffect, useState } from "react";
 
-export default function useAudio(
-  url: string
-): [boolean, () => void, (e: ChangeEvent<HTMLInputElement>) => void, number] {
+
+export default function useAudio(url: string): AUdioHookType {
   const [audio] = useState(new Audio(url));
   const [playing, setPlaying] = useState<boolean>(false);
   const [volume, setVolume] = useState(0.5); // Default volume is set to 50%
@@ -44,5 +44,12 @@ export default function useAudio(
     setVolume(newVolume);
   };
 
-  return [playing, toggle, handleVolumeChange, volume];
+  const audioHook: AUdioHookType = {
+    playing,
+    toggle,
+    handleVolumeChange,
+    volume,
+  };
+
+  return audioHook;
 }
