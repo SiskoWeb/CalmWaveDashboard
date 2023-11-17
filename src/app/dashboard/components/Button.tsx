@@ -33,6 +33,7 @@ export default function Button({
             <FaXmark />
           </button>
           {children}
+          hello
         </div>
       </Modal>
       <button onClick={() => toggle()}>{icon && icon}</button>

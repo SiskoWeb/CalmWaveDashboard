@@ -4,9 +4,14 @@ import { useState } from "react";
 import { FaClipboardList, FaRegSquarePlus, FaXmark } from "react-icons/fa6";
 import Modal from "@/app/dashboard/components/Modal";
 import Draggable from "react-draggable";
+import useTodoList from "@/hooks/useTodoList";
+import { TaskType } from "@/types";
 
 export default function TodoList() {
+  const taskLogic = useTodoList();
+  const [task, setTask] = useState<string>("");
   const [isPopupOpen, setPopupOpen] = useState(false);
+
   const toggle = (): void => {
     if (isPopupOpen === true) {
       setPopupOpen(false);
@@ -14,6 +19,8 @@ export default function TodoList() {
       setPopupOpen(true);
     }
   };
+
+  console.log(taskLogic.tasks);
   return (
     <Draggable>
       <div className="fixed top-20 left-5 ">
@@ -36,25 +43,37 @@ export default function TodoList() {
                 <label className="flex gap-1 justify-between">
                   {" "}
                   <input
-                    className="shadow appearance-none border rounded w-full py-2 px-3 mr-4 text-grey-darker"
+                    className="shadow  text-black appearance-none border rounded w-full py-2 px-3 mr-4 "
                     type="text"
                     placeholder="Add Todo"
+                    onChange={(e) => setTask(e.target.value)}
+                    
                   ></input>
-                  <button className="shadow appearance-none border rounded py-2 px-3  text-grey-darker">
+                  <button
+                    onClick={() => taskLogic.onSubmit(task)}
+                    className="shadow appearance-none border rounded py-2 px-3  text-grey-darker"
+                  >
                     <FaRegSquarePlus />
                   </button>
                 </label>
                 <div className="flex flex-col gap-3">
+                  {taskLogic.tasks.length === 0 ? (
+                    <p>Add Tasks</p>
+                  ) : (
+                    taskLogic.tasks.map(
+                      (item: TaskType): React.ReactElement | any => {
+                        <div
+                          key={item.id}
+                          className="flex gap-2 justify-between"
+                        >
+                          <p>Finish Task Logic</p>
+                          <button>Remove</button>
+                        </div>;
+                      }
+                    )
+                  )}
                   {/* Task  */}
-                  <div className="flex gap-2 justify-between">
-                    <p>Finish Task Logic</p>
-                    <button>Remove</button>
-                  </div>
-                  {/* Task  */}
-                  <div className="flex gap-2 justify-between">
-                    <p>Finish Task Logic</p>
-                    <button>Remove</button>
-                  </div>
+
                   {/* Task  */}
                   <div className="flex gap-2 justify-between">
                     <p>Finish Task Logic</p>

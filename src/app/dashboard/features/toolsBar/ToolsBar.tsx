@@ -17,5 +17,5 @@ export default function ToolsBar() {
         <YoutubePlayer />
       </div>
     </div>
-  );
+  );  
 }

@@ -11,8 +11,8 @@ import { useAppSelector, useAppDispatch } from "@/redux/reduxHooks";
 import { nextMusic, prevMusic } from "@/redux/features/music-Slice/music-Slice";
 import useAudio from "@/hooks/useAudio";
 import Button from "../../components/Button";
+import { useSelector } from "react-redux";
 export default function MusicPlayer() {
-
   const music = useAppSelector((state) => state.musicSlice.musicValue);
   const dispatch = useAppDispatch();
 
