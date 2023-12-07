@@ -14,7 +14,7 @@ export default function Button({
 }) {
   const [isPopupOpen, setPopupOpen] = useState(false);
 
-  //this function for  
+  //this function for
   const toggle = (): void => {
     if (isPopupOpen === true) {
       setPopupOpen(false);
@@ -22,7 +22,7 @@ export default function Button({
       setPopupOpen(true);
     }
   };
-  
+
   return (
     <div className="relative flex items-center left-0 right-0">
       <Modal isOpen={isPopupOpen}>
@@ -33,7 +33,6 @@ export default function Button({
             <FaXmark />
           </button>
           {children}
-          hello
         </div>
       </Modal>
       <button onClick={() => toggle()}>{icon && icon}</button>

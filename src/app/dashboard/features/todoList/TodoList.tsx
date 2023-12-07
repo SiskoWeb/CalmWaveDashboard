@@ -20,7 +20,7 @@ export default function TodoList() {
     }
   };
 
-  console.log(taskLogic.tasks);
+
   return (
     <Draggable>
       <div className="fixed top-20 left-5 ">
@@ -47,7 +47,6 @@ export default function TodoList() {
                     type="text"
                     placeholder="Add Todo"
                     onChange={(e) => setTask(e.target.value)}
-                    
                   ></input>
                   <button
                     onClick={() => taskLogic.onSubmit(task)}
@@ -57,28 +56,15 @@ export default function TodoList() {
                   </button>
                 </label>
                 <div className="flex flex-col gap-3">
-                  {taskLogic.tasks.length === 0 ? (
-                    <p>Add Tasks</p>
-                  ) : (
-                    taskLogic.tasks.map(
-                      (item: TaskType): React.ReactElement | any => {
-                        <div
-                          key={item.id}
-                          className="flex gap-2 justify-between"
-                        >
-                          <p>Finish Task Logic</p>
-                          <button>Remove</button>
-                        </div>;
-                      }
-                    )
-                  )}
                   {/* Task  */}
-
-                  {/* Task  */}
-                  <div className="flex gap-2 justify-between">
-                    <p>Finish Task Logic</p>
-                    <button>Remove</button>
-                  </div>
+                  {taskLogic.tasks.map((item: TaskType): any => (
+                    <div key={item.id} className="flex gap-2 justify-between">
+                      <p>{item.title}</p>
+                      <button onClick={() => taskLogic.onRemoveTask(item.id)}>
+                        Remove
+                      </button>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
