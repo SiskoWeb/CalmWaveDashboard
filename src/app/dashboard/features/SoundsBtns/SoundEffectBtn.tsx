@@ -1,7 +1,6 @@
 "use client";
 import useAudio from "@/hooks/useAudio";
 import React from "react";
-import { FaCloudShowersHeavy } from "react-icons/fa6";
 
 export default function SoundEffectBtn() {
   const audioHook = useAudio(
