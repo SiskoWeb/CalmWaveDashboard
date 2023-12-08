@@ -4,7 +4,7 @@ import { TaskType } from "@/types";
 import { useState } from "react";
 
 export default function useTodoList() {
-  const [tasks, setTasks] = useState<TaskType[]>(
+  const [tasks, setTasks] = useState<TaskType[]|any>(
     localStorage.getItem("tasks")
       ? JSON.parse(localStorage.getItem("tasks"))
       : []
